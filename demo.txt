@@ -1,0 +1,21 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class Main {
+	public static void main(String[] args) {
+		List<Integer> list = Arrays.asList(2, 5, 7, 8, 2, 2, 5, 8);
+		
+		
+		Set<Integer> result = findDuplicateBySetAdd(list);
+		result.forEach(System.out::println);
+	}
+
+	public static Set<Integer> findDuplicateBySetAdd(List<Integer> list) {
+		Set<Integer> items = new HashSet<>();
+		return list.stream().filter(n ->!items.add(n)).collect(Collectors.toSet());
+
+	}
+}
